@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext app = new
                 ClassPathXmlApplicationContext("ApplicationContext.xml");
-        T1000 robot = (T1000)app.getBean("t1000");
+        T1000 robot = (T1000)app.getBean("t1000empty");
         robot.dance();
         robot.fire();
     }

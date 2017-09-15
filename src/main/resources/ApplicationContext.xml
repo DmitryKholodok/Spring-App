@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="sonyHead" class="com.kholodok.implem.Head.SonyHead"></bean>
@@ -8,11 +9,20 @@
     <bean id="sonyBody" class="com.kholodok.implem.Body.SonyBody"></bean>
     <bean id="nokiaBody" class="com.kholodok.implem.Body.NokiaBody"></bean>
 
-    <bean id="t1000" class="com.kholodok.implem.T1000">
-        <constructor-arg ref="nokiaHead"/>
-        <constructor-arg ref="sonyBody"/>
-        <!--<property name="body" ref="nokiaBody"/>-->
+    <bean id="t1000" class="com.kholodok.implem.T1000" p:body-ref="nokiaBody">
+
+        <constructor-arg index="0" type="java.lang.String" value="silver"/>
+        <constructor-arg index="1" type="int" value="13"/>
+        <constructor-arg index="2" type="boolean" value="true"/>
+
         <property name="head" ref="nokiaHead"/>
+
+    </bean>
+
+    <bean id="t1000empty" class="com.kholodok.implem.T1000">
+
+        <constructor-arg ref="nokiaHead"/>
+        <constructor-arg ref="nokiaBody"/>
 
     </bean>
 
