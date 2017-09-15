@@ -39,6 +39,14 @@ public class T1000 implements Robot {
 
     }
 
+    public void init() {
+        System.out.println("Init");
+    }
+
+    public void destroy() {
+        System.out.println("Destroy");
+    }
+
     public void fire() {
         head.think();
         body.move();
